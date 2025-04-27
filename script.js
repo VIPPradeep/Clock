@@ -8,14 +8,14 @@ function setDate(){
     const getseconds = now.getSeconds();
     const getminutes = now.getMinutes();
     const gethours = now.getHours();
-
-    const secdegree = (getseconds/60)*360;
-    const mindegree = (getminutes/60)*360;
-    const hourdegree = (gethours/60)*360;
-
-    second.style.transform = `rotate(${secdegree}deg)`
-    minute.style.transform = `rotate(${mindegree}deg)`
-    hour.style.transform = `rotate(${hourdegree}deg)`
+    
+    const secdegree = (getseconds / 60) * 360;
+    const mindegree = (getminutes / 60) * 360;
+    const hourdegree = ((gethours % 12) / 12) * 360 + (getminutes / 60) * 30;
+    
+    second.style.transform = `rotate(${secdegree}deg)`;
+    minute.style.transform = `rotate(${mindegree}deg)`;
+    hour.style.transform = `rotate(${hourdegree}deg)`;
 }
 setInterval(setDate,1000);
 setDate();
